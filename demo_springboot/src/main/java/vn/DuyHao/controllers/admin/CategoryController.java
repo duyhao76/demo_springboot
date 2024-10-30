@@ -39,9 +39,9 @@ public class CategoryController {
 	public String all(Model model) {
 		List<Category> list = categoryService.findAll();
 		
-		model.addAttribute("list", list);
+		model.addAttribute("categories", list);
 		
-		return "admin/category/list";
+		return "admin/fragments/category/list";
 	}
 	
 	@GetMapping("/add")
@@ -50,7 +50,7 @@ public class CategoryController {
 		category.setIsEdit(false);
 		model.addAttribute("category", category);
 		
-		return "admin/category/add";
+		return "admin/fragments/category/add";
 	}
 	
 	
@@ -93,7 +93,7 @@ public class CategoryController {
 			
 			model.addAttribute("category", cateModel);
 			
-			return new ModelAndView("admin/category/add", model);
+			return new ModelAndView("admin/fragments/category/add", model);
 		}
 		model.addAttribute("message", "Category is not existed");
 		return new ModelAndView("forward:/admin/categories", model);
@@ -103,8 +103,7 @@ public class CategoryController {
 	public ModelAndView delete (ModelMap model, @PathVariable("id") Long categoryId) {
 		categoryService.deleteById(categoryId);
 		model.addAttribute("message", "Category is deleted");
-		return new ModelAndView("forward"
-				+ ":/admin/categories", model);
+		return new ModelAndView("forward:/admin/categories", model);
 	}
 	
 	@RequestMapping("/searchpaginated")

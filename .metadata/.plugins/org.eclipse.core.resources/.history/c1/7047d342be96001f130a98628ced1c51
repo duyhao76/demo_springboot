@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- header.html -->
+<div th:fragment="footer">
+    <h2>sinh viên: Nguyễn Duy Hào </h2> <br>
+    <h2>MSSV: 22110133</h2>
+</div>
+</head>
+<body>
+
+</body>
+</html>
